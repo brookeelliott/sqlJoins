@@ -1,3 +1,4 @@
+USE bestbuy; 
 /* joins: select all the computers from the products table:
 using the products table and the categories table, return the product name and the category name */
  SELECT products.Name, categories.Name FROM products 
@@ -22,12 +23,12 @@ WHERE categories.Name = 'Appliances' OR categories.Name = 'Games';
  for Eagles: Hotel California --You may need to use SUM() */
 SELECT products.Name, SUM(sales.Quantity), SUM(sales.Quantity * sales.PricePerUnit) FROM products
 INNER JOIN sales on sales.ProductID = products.ProductID
-WHERE product.Name = 'Eagles: Hotel California';
+WHERE products.Name = 'Eagles: Hotel California';
 
 /* joins: find Product name, reviewer name, rating, and comment on the Visio TV. (only return for the lowest rating!) */
-SELECT products.Name, reviews.Reviewer, MIN(reviews.Rating), reviews.Comment FROM products
+SELECT products.Name, reviews.Reviewer, reviews.Rating, reviews.Comment FROM products
 INNER JOIN reviews ON reviews.ProductID = products.ProductID
-WHERE product.Name = 'Visio TV';
+WHERE products.Name = 'Visio TV' AND reviews.Rating = 1; 
 
 -- ------------------------------------------ Extra - May be difficult ----- Ehh, another time 
 /* Your goal is to write a query that serves as an employee sales report.
